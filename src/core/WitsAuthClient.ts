@@ -308,7 +308,7 @@ export class WitsAuthClient {
       throw new Error('No refresh token available to access account management.');
     }
 
-    if (typeof window === 'undefined' || !document) {
+    if (typeof window === 'undefined' || typeof document === 'undefined') {
       throw new Error('navigateToAccountManagement requires a browser environment.');
     }
 
