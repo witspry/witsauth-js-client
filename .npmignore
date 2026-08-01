@@ -1,0 +1,29 @@
+# Ignore everything in the root by default except build output and docs
+*
+!dist/
+!package.json
+!README.md
+!CHANGELOG.md
+!LICENSE
+
+# Explicitly ignore development files even inside allowed folders
+src/
+node_modules/
+.vscode/
+.idea/
+.github/
+
+# Configs
+tsconfig.*
+vite.config.*
+vitest.config.*
+.gitignore
+.npmrc
+.nvmrc
+.eslintrc*
+.prettierrc*
+
+# Test files
+*.spec.ts
+*.test.ts
+coverage/
