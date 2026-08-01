@@ -1,0 +1,40 @@
+{
+  "name": "@witsauth/js-client",
+  "version": "1.0.0",
+  "description": "Official pure JavaScript/TypeScript client library for integrating Witsauth Single Sign-On (SSO) authentication into any JavaScript application.",
+  "main": "./dist/index.umd.js",
+  "module": "./dist/index.es.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.umd.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc && vite build",
+    "test": "vitest run"
+  },
+  "keywords": [
+    "javascript",
+    "typescript",
+    "auth",
+    "oauth2",
+    "pkce",
+    "sso"
+  ],
+  "author": "",
+  "license": "GPL-3.0",
+  "type": "module",
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0",
+    "vite": "^5.0.0",
+    "vite-plugin-dts": "^3.0.0",
+    "vitest": "^1.0.0"
+  }
+}
