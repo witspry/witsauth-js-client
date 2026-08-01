@@ -278,6 +278,12 @@ export class WitsAuthClient {
         const thresholdMs = (this.config.refreshThreshold ?? 60) * 1000;
         
         if (Date.now() >= expiresAt - thresholdMs) {
+          const refreshToken = this.storage.getItem(STORAGE_KEYS.REFRESH_TOKEN);
+          if (!refreshToken) {
+            this.stopAutoRefresh();
+            return;
+          }
+
           this.isRefreshing = true;
           try {
             const tokens = await this.refreshAccessToken();
