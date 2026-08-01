@@ -14,11 +14,16 @@ export class TokenStorage {
     }
 
     if (typeof window !== 'undefined') {
-      if (this.storageType === 'sessionStorage' && window.sessionStorage) {
-        return window.sessionStorage;
-      }
-      if ((!this.storageType || this.storageType === 'localStorage') && window.localStorage) {
-        return window.localStorage;
+      try {
+        if (this.storageType === 'sessionStorage' && window.sessionStorage) {
+          return window.sessionStorage;
+        }
+        if ((!this.storageType || this.storageType === 'localStorage') && window.localStorage) {
+          return window.localStorage;
+        }
+      } catch (err) {
+        // Web storage access can throw SecurityError if blocked/disabled.
+        // Ignore the error and fall through to memory storage.
       }
     }
     
